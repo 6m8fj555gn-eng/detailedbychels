@@ -15,6 +15,8 @@
             --blush-pink: #F9ECEE;
             --charcoal: #231F20;
             --white: #FFFFFF;
+            --whatsapp-green: #25D366;
+            --instagram-grad: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
         }
 
         * {
@@ -234,51 +236,46 @@
         }
 
         .contact p {
-            margin-bottom: 40px;
+            margin-bottom: 35px;
             color: #555;
+            font-size: 1.1rem;
         }
 
-        form {
+        .contact-container {
             background-color: var(--white);
-            max-width: 600px;
+            max-width: 500px;
             margin: 0 auto;
-            padding: 40px;
+            padding: 40px 30px;
             border-radius: 15px;
-            text-align: left;
             box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
         }
 
-        .form-group {
-            margin-bottom: 20px;
+        /* Specialized Action Buttons */
+        .btn-whatsapp {
+            background-color: var(--whatsapp-green);
+            border-color: var(--whatsapp-green);
+            color: var(--white);
         }
 
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+        .btn-whatsapp:hover {
+            background-color: transparent;
+            color: var(--whatsapp-green);
+            border-color: var(--whatsapp-green);
         }
 
-        input, select, textarea {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #DDD;
-            border-radius: 8px;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1rem;
-        }
-
-        input:focus, select:focus, textarea:focus {
-            outline: none;
-            border-color: var(--rose-gold);
-        }
-
-        form .btn {
-            width: 100%;
+        .btn-instagram {
+            background: var(--instagram-grad);
             border: none;
-            cursor: pointer;
+            color: var(--white);
+        }
+
+        .btn-instagram:hover {
+            background: transparent;
+            color: #cc2366;
+            outline: 2px solid #cc2366;
         }
 
         footer {
@@ -294,7 +291,7 @@
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.2rem; }
             .intro { padding: 60px 5%; }
-            form { padding: 25px; }
+            .contact-container { padding: 30px 20px; }
         }
     </style>
 </head>
@@ -307,7 +304,7 @@
     <section class="hero">
         <h1>Showroom Perfection.<br>Delivered to Your Door.</h1>
         <p>Premium mobile automotive aesthetics and cosmetic preservation. We operate a completely self-contained detailing studio on wheels—bringing flawless correction and protection straight to your driveway.</p>
-        <a href="#quote" class="btn">Get a Bespoke Quote</a>
+        <a href="#contact" class="btn">Book / Inquire Now</a>
     </section>
 
     <section class="intro">
@@ -322,7 +319,7 @@
             <div class="card">
                 <div>
                     <h3>The Safe Exterior</h3>
-                    <p class="price">£35</p>
+                    <p class="price">£40</p>
                     <ul>
                         <li>Complete pH-neutral pre-wash & active snow foam</li>
                         <li>Safe multi-stage two-bucket hand wash</li>
@@ -332,13 +329,13 @@
                         <li>Tyres dressed and glossed</li>
                     </ul>
                 </div>
-                <a href="#quote" class="btn">Book Package</a>
+                <a href="#contact" class="btn">Book Package</a>
             </div>
 
             <div class="card">
                 <div>
                     <h3>The In & Out Balance</h3>
-                    <p class="price">£45</p>
+                    <p class="price">£60</p>
                     <ul>
                         <li>Everything included in the Safe Exterior package</li>
                         <li>Intensive interior vacuum & deep dust extraction</li>
@@ -348,7 +345,7 @@
                         <li>Footwells and mats completely refreshed</li>
                     </ul>
                 </div>
-                <a href="#quote" class="btn">Book Package</a>
+                <a href="#contact" class="btn">Book Package</a>
             </div>
 
             <div class="card">
@@ -363,7 +360,7 @@
                         <li>Leather seats deep cleaned and conditioned (if applicable)</li>
                     </ul>
                 </div>
-                <a href="#quote" class="btn">Book Package</a>
+                <a href="#contact" class="btn">Book Package</a>
             </div>
 
         </div>
@@ -379,38 +376,15 @@
         </div>
     </section>
 
-    <section class="contact" id="quote">
-        <h2>Request a Bespoke Quote</h2>
-        <p>Tell Chelsea what machine you drive and what treatment it requires. She will tailor a custom quote specifically for your vehicle.</p>
+    <section class="contact" id="contact">
+        <h2>Connect & Book Instantly</h2>
+        <p>Skip the paperwork. Tap below to send Chelsea a message directly or view her latest transformations live on social media.</p>
         
-        <form action="https://formspree.io/f/placeholder" method="POST">
-            <div class="form-group">
-                <label for="name">Your Name</label>
-                <input type="text" id="name" name="name" required placeholder="e.g. John Doe">
-            </div>
-            <div class="form-group">
-                <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" name="phone" required placeholder="e.g. 07123 456789">
-            </div>
-            <div class="form-group">
-                <label for="vehicle">Vehicle Make & Model</label>
-                <input type="text" id="vehicle" name="vehicle" required placeholder="e.g. 2016 Mercedes A-Class Red">
-            </div>
-            <div class="form-group">
-                <label for="service">Desired Service Tier</label>
-                <select id="service" name="service">
-                    <option value="exterior">The Safe Exterior (£35)</option>
-                    <option value="in_out">The In & Out Balance (£45)</option>
-                    <option value="full">The Full Transformation (£80)</option>
-                    <option value="custom">Custom Request / Multiple Vehicles</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="notes">Additional Requirements / Condition Details</label>
-                <textarea id="notes" name="notes" rows="4" placeholder="Any specific details Chelsea should know before arriving?"></textarea>
-            </div>
-            <button type="submit" class="btn">Submit Quote Request</button>
-        </form>
+        <div class="contact-container">
+            <a href="https://wa.me/447123456789" target="_blank" class="btn btn-whatsapp">Message via WhatsApp</a>
+            
+            <a href="https://instagram.com/detailedbychels" target="_blank" class="btn btn-instagram">Follow on Instagram</a>
+        </div>
     </section>
 
     <footer>
@@ -419,4 +393,3 @@
 
 </body>
 </html>
-
